@@ -42,16 +42,16 @@ function getComputerMove(items) {
 function winStatus(playerGo, compGo) {
 	// Fins relevant array to pass to win logic
 	if (playerGo === "r") {
-		return beats(compGo, rock, scorePlayer, scoreComp)
+		return winLogic(compGo, rock)
 	} else if (playerGo === "p") {
-		return beats(compGo, paper, scorePlayer, scoreComp)
+		return winLogic(compGo, paper)
 	} else if (playerGo === "s") {
-		return beats(compGo, scissor, scorePlayer, scoreComp)
+		return winLogic(compGo, scissor)
 	} 
 }
 
 // Logic for checking win status
-function beats(compGo, array) {
+function winLogic(compGo, array) {
 	if (array.indexOf(compGo) === 1) {
 		return "You have drawn with the computer this round :/";
 	} else if (array.indexOf(compGo) === 0) {
